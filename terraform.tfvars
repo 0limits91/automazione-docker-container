@@ -17,7 +17,7 @@ container_name_prefix =  "app-name"
 
 docker_images = {
   php = {
-    image                 = "php:5.5-apache"  #immagine docker da utilizzare
+    image                 = "php:8.3-apache"  #immagine docker da utilizzare
     enable_envs           = true              #utilizza variabili d'ambiente
     enable_ports          = true              #port mapping
     enable_volume_mount   = true              #monta volume (bridge)
@@ -31,7 +31,7 @@ docker_images = {
     env_vars              = ["TEST=ciao"]     #variabili d'ambiente
   }
   node = {
-    image                 = "node:16.18.0-alpine"
+    image                 = "node:20.14.0-alpine3.20"
     enable_envs           = true 
     enable_ports          = true
     enable_volume_mount   = true
@@ -53,8 +53,43 @@ docker_images = {
     enable_command        = false
     ports                 = {
       internal = 3306
-      external = 8036
+      external = 8306
     }
     env_vars              = ["MARIADB_ROOT_PASSWORD=password"]
+  }
+  postgres = {
+    image                 = "postgres"
+    enable_envs           = true
+    enable_ports          = true
+    enable_volume_mount   = false
+    enable_command        = false
+    ports                 = {
+      internal = 5432
+      external = 8432
+    }
+    env_vars              = ["POSTGRES_PASSWORD=password"]
+  }
+  mongodb = {
+    image                 = "mongo"
+    enable_envs           = true
+    enable_ports          = true
+    enable_volume_mount   = false
+    enable_command        = false
+    ports                 = {
+      internal = 27017
+      external = 8017
+    }
+    env_vars              = ["MONGO_INITDB_ROOT_USERNAME=username", "MONGO_INITDB_ROOT_PASSWORD=password"]
+  }
+  redis = {
+    image                 = "redis"
+    enable_envs           = false
+    enable_ports          = true
+    enable_volume_mount   = false
+    enable_command        = false
+    ports                 = {
+      internal = 6379
+      external = 8379
+    }
   }
 }

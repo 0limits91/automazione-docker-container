@@ -55,7 +55,10 @@ Immagini testate:
 - `node:16.18.0-alpine`
 
 ## database
--  `mariadb`
+-  `mariadb`  (port: 8306 user: root (default) password: password)
+-  `postgres` (port: 8432 user: root (default) password: password)
+-  `mongodb`  (port: 8017 user: username password: password)
+-  `redis`    (port: 8379)
 
 Una volta configurate le risorse, si possono eseguire le operazioni di creazione/modifica/eliminazione delle risorse all'interno dell'infrastruttura lanciando lo script batch `deploy.bat`
 
