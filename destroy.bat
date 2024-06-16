@@ -5,8 +5,7 @@ echo #  FRANCESCO CAPPA (fcappa91)  #
 echo ################################
 echo #       versione 0.0.2         #
 echo ################################ 
-echo #           DEPLOY             #
-echo ################################ 
+echo #           DESTROY            #
+echo ################################
 
-terraform.exe init
-terraform.exe apply -auto-approve
+terraform.exe destroy -auto-approve

@@ -25,6 +25,7 @@ variable "environment" {
 variable "docker_images" {
   type = map(object({
     image                 = string
+    enabled               = bool
     enable_envs           = bool
     enable_ports          = bool
     enable_volume_mount   = bool

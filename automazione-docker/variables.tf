@@ -32,6 +32,7 @@ variable "docker_images" {
   description = "Mappa contenente le immagini con le loro configurazioni"
   type = map(object({
     image                 = string
+    enabled               = bool
     enable_envs           = bool
     enable_ports          = bool
     enable_volume_mount   = bool

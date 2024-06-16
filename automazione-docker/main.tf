@@ -4,7 +4,10 @@
 ################################
 
 resource "docker_container" "image" {
-  for_each = var.docker_images
+  for_each = {
+    for key, value in var.docker_images : key => value
+    if value.enabled
+  }
   name     = "${var.container_name_prefix}-${each.key}"
   image    = each.value.image
 

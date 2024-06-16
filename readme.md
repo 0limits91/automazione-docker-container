@@ -3,7 +3,7 @@
 # AUTOMAZIONE CONTAINER DOCKER #
 #  FRANCESCO CAPPA (fcappa91)  #
 ################################
-#       versione 0.0.1         #
+#       versione 0.0.2         #
 ################################
 ````
 Per aggiungere/modificare una risorsa docker all'infrastruttura, si possono modificare le configurazioni nel file `terraform.tfvars` 
@@ -13,6 +13,7 @@ Esempio di una singola configurazione:
 ````
 nome_servizio = {
     image                 = "nome-immagine-docker"  #immagine docker da utilizzare
+    enabled               = true                    #abilita la configurazione corrente  (v0.0.2)
     enable_envs           = true                    #utilizza variabili d'ambiente
     enable_ports          = true                    #port mapping
     enable_volume_mount   = true                    #monta volume (bridge)
@@ -30,6 +31,7 @@ nome_servizio = {
 Utilizzo:
 ```
 image                 (bool)  (obbligatorio)
+enabled               (bool)  (obbligatorio)
 enable_envs           (bool)  (obbligatorio)
 enable_ports          (bool)  (obbligatorio)
 enable_volume_mount   (bool)  (obbligatorio)
@@ -60,7 +62,7 @@ Immagini testate:
 -  `mongodb`  (port: 8017 user: username password: password)
 -  `redis`    (port: 8379)
 
-Una volta configurate le risorse, si possono eseguire le operazioni di creazione/modifica/eliminazione delle risorse all'interno dell'infrastruttura lanciando lo script batch `deploy.bat`
-
+Una volta configurate le risorse, si possono eseguire le operazioni di creazione/modifica delle risorse all'interno dell'infrastruttura lanciando lo script batch `deploy.bat`
+Si possono rimuovere le risorse all'interno dell'infrastruttura lanciando lo script batch `destroy.bat`
 
 N.B. Per un corretto funzionamento è richiesto docker installato e configurato

@@ -18,6 +18,7 @@ container_name_prefix =  "app-name"
 docker_images = {
   php = {
     image                 = "php:8.3-apache"  #immagine docker da utilizzare
+    enabled               = true              #abilita la configurazione corrente
     enable_envs           = true              #utilizza variabili d'ambiente
     enable_ports          = true              #port mapping
     enable_volume_mount   = true              #monta volume (bridge)
@@ -32,6 +33,7 @@ docker_images = {
   }
   node = {
     image                 = "node:20.14.0-alpine3.20"
+    enabled               = false
     enable_envs           = true 
     enable_ports          = true
     enable_volume_mount   = true
@@ -47,6 +49,7 @@ docker_images = {
   }
   mariadb = {
     image                 = "mariadb"
+    enabled               = true
     enable_envs           = true
     enable_ports          = true
     enable_volume_mount   = false
@@ -59,6 +62,7 @@ docker_images = {
   }
   postgres = {
     image                 = "postgres"
+    enabled               = false
     enable_envs           = true
     enable_ports          = true
     enable_volume_mount   = false
@@ -71,6 +75,7 @@ docker_images = {
   }
   mongodb = {
     image                 = "mongo"
+    enabled               = false
     enable_envs           = true
     enable_ports          = true
     enable_volume_mount   = false
@@ -83,6 +88,7 @@ docker_images = {
   }
   redis = {
     image                 = "redis"
+    enabled               = false
     enable_envs           = false
     enable_ports          = true
     enable_volume_mount   = false
