@@ -3,7 +3,7 @@
 # AUTOMAZIONE CONTAINER DOCKER #
 #  FRANCESCO CAPPA (fcappa91)  #
 ################################
-#       versione 0.0.2         #
+#       versione 0.0.3         #
 ################################
 ````
 Per aggiungere/modificare una risorsa docker all'infrastruttura, si possono modificare le configurazioni nel file `terraform.tfvars` 
