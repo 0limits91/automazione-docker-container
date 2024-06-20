@@ -62,7 +62,14 @@ Immagini testate:
 -  `mongodb`  (port: 8017 user: username password: password)
 -  `redis`    (port: 8379)
 
-Una volta configurate le risorse, si possono eseguire le operazioni di creazione/modifica delle risorse all'interno dell'infrastruttura lanciando lo script batch `deploy.bat`
-Si possono rimuovere le risorse all'interno dell'infrastruttura lanciando lo script batch `destroy.bat`
+Una volta configurate le risorse, si possono eseguire le operazioni di creazione/modifica delle risorse all'interno dell'infrastruttura lanciando lo script powershell `avvia.ps1`
 
+Lo script prevede le seguenti opzioni:
+ - `1. Inizializza`
+ - `2. Pianifica` 
+ - `3. Applica` 
+ - `4. Distruzione` 
+ - `5. Distruzione veloce` 
+ - `6. Abilita WSL 2 (privilegi amministratore)` 
+ 
 N.B. Per un corretto funzionamento è richiesto docker installato e configurato
