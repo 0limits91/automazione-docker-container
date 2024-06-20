@@ -1,6 +1,6 @@
-$versione = "0.0.3"
+$versione = "0.0.3(a)"
 
-$menu = @('1. Inizializza','2. Pianifica', '3. Applica', '4. Distruzione', '5. Distruzione veloce', '6. Info', '7. Esci')
+$menu = @('1. Inizializza','2. Pianifica', '3. Applica', '4. Distruzione', '5. Distruzione veloce', '6. Abilita WSL 2 (privilegi amministratore)', '7. Info', '8. Esci')
 
 function Mostra-Menu {
     Write-Host "----- Menu -----"
@@ -16,7 +16,7 @@ function Processa-Scelta {
         [int] $scelta
     )
 
-    switch ($choice) {
+    switch ($scelta) {
         1 {
             Write-Host "Inizializzazione..."
             terraform.exe init
@@ -38,17 +38,23 @@ function Processa-Scelta {
             Write-Host "Distruzione veloce in corso..."
             terraform.exe destroy -auto-approve
         }
-        6 {
+        6{
+            Write-Host "Abilita Windows Subsystem per Linux (v2)..."
+            dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+            dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+            wsl --set-default-version 2    
+        }
+        7 {
             Write-Host "################################"
             Write-Host "# AUTOMAZIONE CONTAINER DOCKER #"
             Write-Host "#  FRANCESCO CAPPA (fcappa91)  #"
             Write-Host "################################"
-            Write-Host "#       versione $versione         #"
+            Write-Host "#       versione $versione      #"
             Write-Host "################################" 
             Write-Host "#           DESTROY            #"
             Write-Host "################################"
         }
-        7 {
+        8 {
             Write-Host "Uscita in corso..."
             exit
         }
